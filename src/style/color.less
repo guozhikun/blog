@@ -1,0 +1,109 @@
+@charset "utf-8";
+//基础变量
+@--color--primary--h:265; //主色相
+@--color--primary--s:100%; //主饱和度
+@--color--primary--l:47%; //主亮度
+
+@--color--secondary--h:180;
+@--color--secondary--s:99%;
+@--color--secondary--l:27%;
+
+//亮度调整
+@--lightnessTransForm:10%;
+@--darknessTransForm:15%;
+
+@--color--primary--light-l: calc(@--color--primary--l + @--lightnessTransForm); //主亮度变亮
+@--color--primary--dark-l: calc(@--color--primary--l - @--darknessTransForm);//主亮度变暗
+@--color--secondary--light-l: calc(@--color--secondary--l + @--lightnessTransForm);
+@--color--secondary--dark-l: calc(@--color--secondary--l - @--darknessTransForm);
+
+
+@--color--primary: hsl(@--color--primary--h,@--color--primary--s,@--color--primary--l); //主色
+@--color--primary-light: hsl(@--color--primary--h,@--color--primary--s,@--color--primary--light-l); // 主色亮
+@--color--primary-dark: hsl(@--color--primary--h,@--color--primary--s,@--color--primary--dark-l); //主色暗
+@--color--secondary: hsl(@--color--secondary--h,@--color--secondary--s,@--color--secondary--l); //次色
+@--color--secondary-light: hsl(@--color--secondary--h,@--color--secondary--s,@--color--secondary--light-l);//次色亮
+@--color--secondary-dark: hsl(@--color--secondary--h,@--color--secondary--s,@--color--secondary--dark-l);//次色暗
+
+
+//互补色（色相 +180）
+@--color--primary-complement: hsl( calc(@--color--primary--h + 180),@--color--primary--s,@--color--primary--l); //主色互补色
+@--color--secondary-complement: hsl( calc(@--color--secondary--h + 180),@--color--secondary--s,@--color--secondary--l); //次色互补色
+
+//三元组色（色相 + — 120）
+@--color-primary-triad-1:hsl( calc(@--color--primary--h + 120),@--color--primary--s,@--color--primary--l);//主色三元色1
+@--color-primary-triad-2:hsl( calc(@--color--primary--h - 120),@--color--primary--s,@--color--primary--l);//主色三元色2
+@--color-secondary-triad-1:hsl( calc(@--color--secondary--h + 120),@--color--secondary--s,@--color--secondary--l);//主色三元色1
+@--color-secondary-triad-2:hsl( calc(@--color--secondary--h - 120),@--color--secondary--s,@--color--secondary--l);//主色三元色2
+
+//对比度阈值
+@--contrastThreshold: 60%;
+
+.cl-primary {
+    background: @--color--primary;
+    @--switch: calc((@--color--primary--l - @--contrastThreshold) * -100);
+    color: hsl(0,0%, @--switch);
+}
+.cl-primary-light {
+    background: @--color--primary-light;
+    @--switch: calc((@--color--primary--light-l - @--contrastThreshold) * -100);
+    color: hsl(0,0%, @--switch);
+}
+.cl-primary-dark {
+    background: @--color--primary-dark;
+    @--switch2: calc((@--color--primary--dark-l - @--contrastThreshold) * -100);
+    color: hsl(0,0%, @--switch2);
+}
+.cl-primary-complement{
+    background: @--color--primary-complement;
+    @--switch: calc((@--color--primary--l - @--contrastThreshold) * -100);
+    color: hsl(0,0%, @--switch);
+}
+.cl-primary-triad-1{
+    background: @--color-primary-triad-1;
+    @--switch: calc((@--color--primary--l - @--contrastThreshold) * -100);
+    color: hsl(0,0%, @--switch);
+}
+.cl-primary-triad-2{
+    background: @--color-primary-triad-2;
+    @--switch: calc((@--color--primary--l - @--contrastThreshold) * -100);
+    color: hsl(0,0%, @--switch);
+}
+
+.cl-secondary {
+    background: @--color--secondary;
+    @--switch: calc((@--color--secondary--l - @--contrastThreshold) * -100);
+    color: hsl(0,0%, @--switch);
+}
+.cl-secondary-light {
+    background: @--color--secondary-light;
+    @--switch: calc((@--color--secondary--light-l - @--contrastThreshold) * -100);
+    color: hsl(0,0%, @--switch);
+}
+.cl-secondary-dark {
+    background: @--color--secondary-dark;
+    @--switch2: calc((@--color--secondary--dark-l - @--contrastThreshold) * -100);
+    color: hsl(0,0%, @--switch2);
+}
+.cl-secondary-complement{
+    background: @--color--secondary-complement;
+    @--switch: calc((@--color--secondary--l - @--contrastThreshold) * -100);
+    color: hsl(0,0%, @--switch);
+}
+.cl-secondary-triad-1{
+    background: @--color-secondary-triad-1;
+    @--switch: calc((@--color--secondary--l - @--contrastThreshold) * -100);
+    color: hsl(0,0%, @--switch);
+}
+.cl-secondary-triad-2{
+    background: @--color-secondary-triad-2;
+    @--switch: calc((@--color--secondary--l - @--contrastThreshold) * -100);
+    color: hsl(0,0%, @--switch);
+}
+
+
+
+//font
+//
+
+//theme
