@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <div :class="{'nav-btn':true,'nav-btn-open':openNav,'nav-btn-close':closeNav}"  @click="switchNav"></div>
-    <div :class="{'nav':true,'nav-open':openNav,'nav-close': closeNav}" >
+    <div :class="{'cl-primary-complement':true,'nav-btn':true,'nav-btn-open':openNav,'nav-btn-close':closeNav}"  @click="switchNav"></div>
+    <div :class="{'cl-primary':true,'nav':true,'nav-open':openNav,'nav-close': closeNav}" >
       <ul class="menu">
         <router-link to="/" tag="li">Home</router-link>
         <router-link to="/bolg" tag="li">Bolg</router-link>

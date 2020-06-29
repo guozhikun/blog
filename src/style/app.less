@@ -1,7 +1,6 @@
 .nav-btn{
     width: 40px;
     height: 40px;
-    background-color: #ccc;
     cursor: pointer;
     position: fixed;
     left: 260px;
@@ -12,7 +11,6 @@
  
 .nav{
     width: 260px;
-    background-color: #ccc;
     position: absolute;
     left: -260px;
     top: 0px;
@@ -33,7 +31,6 @@
 
 .nav-btn-open{
     animation: nav-btn-open .8s;
-    background-color: palegreen;
     left: 220px;
     top: 0px;
 }
@@ -41,11 +38,9 @@
 
 @keyframes  nav-btn-open{
     from {   
-        background-color: #ccc;
         left: 260px;
         top: 60px;}
     to {
-        background-color: palegreen;
         left: 220px;
         top: 0px;
     }      
@@ -53,7 +48,6 @@
 }
 .nav-btn-close{
     animation: nav-btn-close .8s;
-    background-color: #ccc;
     left: 260px;
     top: 60px;
 }
@@ -61,14 +55,11 @@
 
 @keyframes  nav-btn-close{
     from {   
-
-        background-color: palegreen;
         left: 220px;
         top: 0px;
     }
 
     to {
-        background-color: #ccc;
         left: 260px;
         top: 60px;
     }      
@@ -77,21 +68,20 @@
 .nav-open{
     animation: nav-open .6s;
     left: 0px;
-    background: yellow;
+    
 }
 @keyframes nav-open
 {
-    from { background-color: #ccc;left: -260px;}
-    to {background: yellow;left: 0px;}
+    from {left: -260px;}
+    to {left: 0px;}
 }
 
 .nav-close{
     animation: nav-close .6s;
-    background-color: #ccc;
     left: -260px;
 }
 @keyframes nav-close
 {
-    from {background: yellow;left: 0px;}
-    to { background-color: #ccc;left: -260px;}
+    from {left: 0px;}
+    to {left: -260px;}
 }
