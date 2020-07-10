@@ -1,8 +1,8 @@
 @charset "utf-8";
 //基础变量
-@--color--primary--h:265; //主色相
-@--color--primary--s:100%; //主饱和度
-@--color--primary--l:47%; //主亮度
+@--color--primary--h:230; //主色相
+@--color--primary--s:44%; //主饱和度
+@--color--primary--l:49%; //主亮度
 
 @--color--secondary--h:180;
 @--color--secondary--s:99%;
@@ -43,6 +43,9 @@
     background: @--color--primary;
     @--switch: calc((@--color--primary--l - @--contrastThreshold) * -100);
     color: hsl(0,0%, @--switch);
+    span{
+        --fill-color: hsl(0,0%, @--switch);
+    }
 }
 .cl-primary-light {
     background: @--color--primary-light;
@@ -101,3 +104,11 @@
     color: hsl(0,0%, @--switch);
 }
  
+//页面定制配色
+.router-link-exact-active{
+    background: @--color--primary-light;
+}
+.left-nav{
+    background: linear-gradient(@--color--primary-light,@--color--primary-dark);
+    
+}

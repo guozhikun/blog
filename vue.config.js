@@ -38,14 +38,18 @@ module.exports = {
   //设置生成的 HTML 中 <link rel="stylesheet"> 和 <script> 标签的 crossorigin 属性。 default:undefined | String
   // crossorigin:undefined,
 
-  // devServer: {
-  //     port: '8083',
-  //     proxy: {
-  //         "/": {
-  //               target: "http://192.168.29.137:9090"
-  //         }
-  //     }
-  // },
+  devServer: {
+    port: '8083',
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000/api/',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
+  },
   chainWebpack: config => {
     config.module
       .rule('less')

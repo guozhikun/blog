@@ -1,15 +1,41 @@
 .nav-btn{
     width: 40px;
-    height: 40px;
+    height: 38px;
     cursor: pointer;
     position: fixed;
     left: 260px;
     top: 40px;
     z-index: 10;
-    background-color: @--color--primary-dark;
+    .nav-btn-bar{
+        width: 34px;
+        height: 4px;
+        background-color: #ccc;
+        margin-top: 17px;
+        position: relative;
+        border-radius: 2px;
+        &::before{
+            content: '';
+            width: 40px;
+            height: 4px;
+            background-color: #ccc;
+            position: absolute;
+            top:-13px;
+            border-radius: 2px;
+        }
+        &::after{
+            content: '';
+            width: 40px;
+            height: 4px;
+            background-color: #ccc;
+            position: absolute;
+            top:13px;
+            border-radius: 2px;
+        }
+    }
 }
  
-.nav{
+ 
+.left-nav{
     width: 260px;
     position: absolute;
     left: -260px;
@@ -17,42 +43,190 @@
     bottom: 0px;
     position: absolute;
     z-index: 9;
+    .logo{
+        margin: 100px auto 0px auto;
+        height: 120px;
+        width: 120px;
+        background-color: #ccc;
+        border-radius: 100%;
+    }
     .menu{
+        margin-top: 60px;
         li{
-            height: 60px;
-            line-height: 60px;
+            height: 70px;
+            line-height: 70px;
             text-align: center;
             cursor: pointer;
+            font-size: 28px;
+            
+            font-family: sans-serif;
+            span{
+                
+                position: relative;
+                padding: 4px 0;
+                font: 700 28px Raleway, sans-serif;
+                text-decoration: none;
+                text-transform: uppercase;
+                -webkit-text-stroke: 2px var(--fill-color);
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0, var(--fill-color))) left/0 no-repeat;
+                background: linear-gradient(var(--fill-color) 0 100%) left/0 no-repeat;
+                color: transparent;
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-transition: 0.5s linear;
+                transition: 0.5s linear;
+                
+            }
+            &:hover{
+              span{
+                background-size: 100%;
+              }     
+            }
         }
+        .setting-font{
+            p{
+                font-weight: bold;
+                text-transform: uppercase;
+                background-image: linear-gradient(
+                to right,
+                orangered,
+                orange,
+                gold,
+                lightgreen,
+                cyan,
+                dodgerblue,
+                mediumpurple,
+                hotpink,
+                orangered);
+                background-size: 110px;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                animation: sliding 30s linear infinite;
+                // position: relative;
+                // &::before{
+                //     content: '';
+                //     width: 26px;
+                //     height:26px; 
+                //     background-image: url(../../public/img/nav/color.png);
+                //     background-repeat: no-repeat;
+                //     background-size:cover;
+                //     position: absolute;
+                //     left: 10px;
+                    
+                // }
+            }
+             
+        }
+         
+    }
+}
+@keyframes sliding {
+    to {
+        background-position: -1000px;
     }
 }
 
 
-
 .nav-btn-open{
-    animation: nav-btn-open .8s;
-    left: 220px;
-    top: 0px;
+    animation: nav-btn-open .6s;
+    left: 216px;
+    top: 6px;
+    .nav-btn-bar{
+        animation: nav-btn-bar-open .6s;
+        transform: rotate(45deg);
+        width: 40px;
+        &::before{
+            content: '';
+            animation: nav-btn-before-open .6s;
+            width: 20px;
+            height: 4px;
+            transform: rotate(90deg);
+            right: 10px;
+            top: -10px;
+        }
+        &::after{
+            content: '';
+            animation: nav-btn-after-open .6s;
+            width: 20px;
+            height: 4px;
+            transform: rotate(90deg);
+            right: 10px;
+            top: 10px;
+        }
+    }
+     
 }
-
-
 @keyframes  nav-btn-open{
     from {   
         left: 260px;
-        top: 60px;}
+        top: 60px;
+    }
     to {
-        left: 220px;
-        top: 0px;
+        left: 216px;
+        top: 6px;
+        
     }      
      
 }
-.nav-btn-close{
-    animation: nav-btn-close .8s;
-    left: 260px;
-    top: 60px;
+@keyframes  nav-btn-bar-open {
+    from {   
+        transform: rotate(0deg);
+        width: 34px;
+    }
+    to {
+        transform: rotate(45deg);
+         width: 40px;
+    }    
+}
+@keyframes  nav-btn-before-open {
+    from {   
+        transform: rotate(0deg);
+        width: 40px;
+    }
+    to {
+        transform: rotate(90deg);
+        width: 20px;
+        right: 10px;
+        top: -10px;
+    }    
+}
+@keyframes  nav-btn-after-open {
+    from {   
+        transform: rotate(0deg);
+        width: 40px;
+    }
+    to {
+        transform: rotate(90deg);
+        width: 20px;
+        right: 10px;
+        top: 10px;
+    }    
 }
 
-
+.nav-btn-close{
+    animation: nav-btn-close .6s;
+    left: 260px;
+    top: 60px;
+    .nav-btn-bar{
+        animation: nav-btn-bar-close .6s;
+        transform: rotate(0deg);
+        width: 34px;
+        &::before{
+            animation: nav-btn-before-close .6s;
+            content: '';
+            width: 40px;
+            height: 4px;
+            right: -6px;
+            top:-13px;
+        }
+        &::after{
+            animation: nav-btn-after-close .6s;
+            content: '';
+            width: 40px;
+            height: 4px;
+        }
+    }
+}
 @keyframes  nav-btn-close{
     from {   
         left: 220px;
@@ -65,6 +239,46 @@
     }      
      
 }
+@keyframes  nav-btn-bar-close {
+    from {   
+        transform: rotate(45deg);
+        width: 40px;
+    }
+    to {
+        transform: rotate(0deg);
+         width: 34px;
+    }    
+}
+@keyframes  nav-btn-before-close {
+    from {   
+        transform: rotate(90deg);
+        width: 20px;
+        right: 10px;
+        top: -10px;
+    }
+    to {
+        transform: rotate(0deg);
+        width: 40px;
+        right: -6px;
+        top:-13px;
+    }    
+}
+@keyframes  nav-btn-after-close {
+    from {   
+        transform: rotate(90deg);
+        width: 20px;
+        right: 10px;
+        top: 10px;
+    }
+    to {
+        transform: rotate(0deg);
+        width: 40px;
+        
+        top:13px;
+    }    
+}
+
+
 .nav-open{
     animation: nav-open .6s;
     left: 0px;
